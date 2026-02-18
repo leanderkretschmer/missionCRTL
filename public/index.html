@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MissionCRTL – Workplattform</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>MissionCRTL</h1>
+        <p>Tracken, Timen, Planen: Pods und Projekte in einem Flow.</p>
+      </div>
+      <div class="topbar-meta">
+        <span id="workspaceBadge">Workspace: arbeit</span>
+      </div>
+    </header>
+
+    <main class="app-layout">
+      <aside class="sidebar-left">
+        <nav class="main-nav">
+          <button class="nav-item active" data-view="active">Aktiv</button>
+          <button class="nav-item" data-view="projects">Projekte</button>
+          <button class="nav-item" data-view="pods">Pods</button>
+        </nav>
+
+        <button class="nav-item settings" data-view="settings">Settings</button>
+      </aside>
+
+      <section class="content" id="contentArea"></section>
+
+      <aside class="sidebar-right">
+        <h2>Projekt-Chat</h2>
+        <p class="muted">Frage z.B. „Was ist heute fällig?“ oder „Neue Pod-Idee“.</p>
+        <form id="aiForm" class="chat-form">
+          <textarea name="message" placeholder="Nachricht an Gemini/ChatGPT/Ollama" required></textarea>
+          <button type="submit">Senden</button>
+        </form>
+        <div id="chatMessages" class="chat-messages"></div>
+      </aside>
+    </main>
+
+    <template id="suggestionTemplate">
+      <div class="panel">
+        <h2>Willkommen 👋</h2>
+        <p>Wähle links einen Bereich oder starte direkt:</p>
+        <ul>
+          <li>Neuen Pod erstellen und Idee strukturieren</li>
+          <li>Pod in Projekt umwandeln und Redmine/OpenProject + GitHub/Forgejo wählen</li>
+          <li>Aktive Tickets tracken (Start/Stop)</li>
+          <li>Signal/WhatsApp Sniffer konfigurieren</li>
+        </ul>
+      </div>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
