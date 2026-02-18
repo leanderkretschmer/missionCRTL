@@ -35,8 +35,5 @@ fi
 echo "[MissionCRTL] Führe Tests aus..."
 npm test
 
-HOST="${HOST:-0.0.0.0}"
-PORT="${PORT:-3000}"
-
-echo "[MissionCRTL] Starte Webapp auf http://${HOST}:${PORT}"
-HOST="$HOST" PORT="$PORT" node server.js
+echo "[MissionCRTL] Starte Webapp auf http://localhost:3000"
+node server.js
