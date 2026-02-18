@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MissionCRTL – Workplattform</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>MissionCRTL</h1>
+      <p>Pods planen, Projekte starten, Tickets timen und KI-gestützt priorisieren.</p>
+    </header>
+
+    <main class="grid">
+      <section class="card" id="workspaceCard">
+        <h2>Arbeitsbereiche</h2>
+        <div id="workspaceDefaults"></div>
+      </section>
+
+      <section class="card" id="integrationCard">
+        <h2>Integrationen</h2>
+        <div class="button-row">
+          <button data-tool="github">GitHub verbinden</button>
+          <button data-tool="forgejo">Forgejo verbinden</button>
+          <button data-tool="redmine">Redmine verbinden</button>
+          <button data-tool="openproject">OpenProject verbinden</button>
+          <button data-tool="signal">Signal verbinden</button>
+          <button data-tool="whatsapp">WhatsApp verbinden</button>
+        </div>
+        <pre id="integrationState"></pre>
+      </section>
+
+      <section class="card">
+        <h2>Pod erstellen</h2>
+        <form id="podForm">
+          <input name="name" placeholder="Pod Name" required />
+          <input name="workspace" placeholder="arbeit oder privat" required />
+          <textarea name="description" placeholder="Beschreibung"></textarea>
+          <button type="submit">Pod speichern</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Pods & Projekt-Konvertierung</h2>
+        <div id="podList"></div>
+      </section>
+
+      <section class="card">
+        <h2>Signal/WhatsApp Sniffer</h2>
+        <form id="snifferForm">
+          <input name="provider" placeholder="signal oder whatsapp" required />
+          <input name="channel" placeholder="z.B. Teamgruppe" required />
+          <input name="boundTo" placeholder="Pod-ID oder Projekt-ID" required />
+          <input name="targetType" placeholder="pod oder project" required />
+          <input name="mode" placeholder="project-info oder pod-source" required />
+          <button type="submit">Sniffer anlegen</button>
+        </form>
+        <div id="snifferResult"></div>
+      </section>
+
+      <section class="card">
+        <h2>KI Chatbox (Gemini / ChatGPT / Ollama)</h2>
+        <form id="aiForm">
+          <input name="message" placeholder="Was muss ich noch machen?" required />
+          <button type="submit">Fragen</button>
+        </form>
+        <div id="aiAnswer"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

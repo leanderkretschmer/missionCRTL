@@ -1,0 +1,11 @@
+{
+  "name": "missioncrtl",
+  "version": "0.1.0",
+  "description": "MissionCRTL work platform MVP",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node --test"
+  }
+}
