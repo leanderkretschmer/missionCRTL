@@ -1,0 +1,67 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  --bg: #0d1321;
+  --card: #1d2d44;
+  --accent: #3e5c76;
+  --text: #f0ebd8;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(130deg, #0d1321, #1d2d44);
+  color: var(--text);
+}
+
+header {
+  padding: 2rem;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.card {
+  background: rgba(29, 45, 68, 0.8);
+  border: 1px solid rgba(240, 235, 216, 0.2);
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+input,
+textarea,
+button {
+  width: 100%;
+  margin-top: 0.5rem;
+  border-radius: 10px;
+  border: none;
+  padding: 0.7rem;
+}
+
+button {
+  background: var(--accent);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.button-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.pod {
+  border: 1px solid rgba(240, 235, 216, 0.2);
+  border-radius: 10px;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+small {
+  color: #c7d0dc;
+}
