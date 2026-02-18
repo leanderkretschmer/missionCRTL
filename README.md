@@ -11,16 +11,6 @@ Moderne MVP-Webapp für eine Workplattform mit:
 
 ## Start
 
-### Alles automatisch aufsetzen und starten
-
-```bash
-./start.sh
-```
-
-Das Script prüft Node/npm, versucht ein `npm install`, führt optional Tests aus und startet anschließend den Server auf `0.0.0.0:3000` (oder via `HOST`/`PORT` überschreibbar). Falls Tests fehlschlagen, startet der Server trotzdem. Mit `RUN_TESTS=0 ./start.sh` kannst du Tests überspringen.
-
-### Manuell
-
 ```bash
 npm install
 npm run dev

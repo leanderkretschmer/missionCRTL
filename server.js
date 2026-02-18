@@ -4,7 +4,6 @@ const path = require('path');
 const { URL } = require('url');
 
 const port = process.env.PORT || 3000;
-const host = process.env.HOST || '0.0.0.0';
 const publicDir = path.join(__dirname, 'public');
 
 const createId = () => Math.random().toString(36).slice(2, 10);
@@ -246,6 +245,6 @@ async function handler(req, res) {
 
 http.createServer((req, res) => {
   handler(req, res).catch(() => sendJson(res, 500, { error: 'Serverfehler' }));
-}).listen(port, host, () => {
-  console.log(`MissionCRTL läuft auf http://${host}:${port}`);
+}).listen(port, () => {
+  console.log(`MissionCRTL läuft auf http://localhost:${port}`);
 });
