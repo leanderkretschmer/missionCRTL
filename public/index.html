@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MissionCRTL – IDE Workplatform</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-a"></div>
+    <div class="bg-orb orb-b"></div>
+
+    <div class="ide-shell">
+      <header class="shell-navbar">
+        <div class="brand">
+          <div class="brand-dot"></div>
+          <div>
+            <h1>MissionCRTL</h1>
+            <p>Comprehensive Project Command Center</p>
+          </div>
+        </div>
+
+        <nav class="top-links">
+          <button class="top-link">Overview</button>
+          <button class="top-link">Boards</button>
+          <button class="top-link">Timeline</button>
+          <button class="top-link">Reports</button>
+        </nav>
+
+        <div class="profile-pill" id="workspaceBadge">Workspace: arbeit / privat</div>
+      </header>
+
+      <main class="shell-grid">
+        <aside class="left-sidebar">
+          <div class="nav-group">
+            <button class="nav-item active" data-view="active">Aktiv</button>
+            <button class="nav-item" data-view="projects">Projekte</button>
+            <button class="nav-item" data-view="pods">Pods</button>
+          </div>
+          <button class="nav-item nav-settings" data-view="settings">Settings</button>
+        </aside>
+
+        <section class="main-content">
+          <div class="content-head" id="contentHead"></div>
+          <div id="contentArea"></div>
+        </section>
+
+        <aside class="right-sidebar">
+          <h2>Assistant Chat</h2>
+          <p class="muted">Frage nach Fälligkeiten, nächsten Tasks oder Pod-Ideen.</p>
+
+          <form id="aiForm" class="chat-form">
+            <textarea name="message" placeholder="z.B. Was muss ich heute erledigen?" required></textarea>
+            <button type="submit">Send</button>
+          </form>
+
+          <div id="chatMessages" class="chat-messages"></div>
+        </aside>
+      </main>
+    </div>
+
+    <template id="emptyTemplate">
+      <div class="panel hero-panel">
+        <h2>Willkommen im MissionCRTL Workspace</h2>
+        <p>Wähle links einen Bereich aus oder starte mit diesen Vorschlägen:</p>
+        <ul>
+          <li>Pod anlegen und strukturieren</li>
+          <li>Pod zu Projekt konvertieren (Tracker + Repo)</li>
+          <li>Signal/WhatsApp Sniffer für projektbezogene Infos aktivieren</li>
+          <li>AI Chat zur Priorisierung und Ideenfindung nutzen</li>
+        </ul>
+      </div>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
