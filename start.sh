@@ -32,20 +32,8 @@ else
   echo "[MissionCRTL] Fahre fort, da der aktuelle MVP dependency-frei lauffähig ist."
 fi
 
-RUN_TESTS="${RUN_TESTS:-1}"
-if [ "$RUN_TESTS" = "1" ]; then
-  echo "[MissionCRTL] Führe Tests aus..."
-  if npm test; then
-    echo "[MissionCRTL] Tests erfolgreich."
-  else
-    echo "[MissionCRTL] Warnung: Tests fehlgeschlagen. Server wird trotzdem gestartet (RUN_TESTS=0 zum Überspringen)."
-  fi
-else
-  echo "[MissionCRTL] Tests übersprungen (RUN_TESTS=0)."
-fi
+echo "[MissionCRTL] Führe Tests aus..."
+npm test
 
-HOST="${HOST:-0.0.0.0}"
-PORT="${PORT:-3000}"
-
-echo "[MissionCRTL] Starte Webapp auf http://${HOST}:${PORT}"
-HOST="$HOST" PORT="$PORT" node server.js
+echo "[MissionCRTL] Starte Webapp auf http://localhost:3000"
+node server.js

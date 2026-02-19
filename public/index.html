@@ -3,74 +3,71 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MissionCRTL – IDE Workplatform</title>
+    <title>MissionCRTL – Workplattform</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="bg-orb orb-a"></div>
-    <div class="bg-orb orb-b"></div>
+    <header>
+      <h1>MissionCRTL</h1>
+      <p>Pods planen, Projekte starten, Tickets timen und KI-gestützt priorisieren.</p>
+    </header>
 
-    <div class="ide-shell">
-      <header class="shell-navbar">
-        <div class="brand">
-          <div class="brand-dot"></div>
-          <div>
-            <h1>MissionCRTL</h1>
-            <p>Comprehensive Project Command Center</p>
-          </div>
+    <main class="grid">
+      <section class="card" id="workspaceCard">
+        <h2>Arbeitsbereiche</h2>
+        <div id="workspaceDefaults"></div>
+      </section>
+
+      <section class="card" id="integrationCard">
+        <h2>Integrationen</h2>
+        <div class="button-row">
+          <button data-tool="github">GitHub verbinden</button>
+          <button data-tool="forgejo">Forgejo verbinden</button>
+          <button data-tool="redmine">Redmine verbinden</button>
+          <button data-tool="openproject">OpenProject verbinden</button>
+          <button data-tool="signal">Signal verbinden</button>
+          <button data-tool="whatsapp">WhatsApp verbinden</button>
         </div>
+        <pre id="integrationState"></pre>
+      </section>
 
-        <nav class="top-links">
-          <button class="top-link">Overview</button>
-          <button class="top-link">Boards</button>
-          <button class="top-link">Timeline</button>
-          <button class="top-link">Reports</button>
-        </nav>
+      <section class="card">
+        <h2>Pod erstellen</h2>
+        <form id="podForm">
+          <input name="name" placeholder="Pod Name" required />
+          <input name="workspace" placeholder="arbeit oder privat" required />
+          <textarea name="description" placeholder="Beschreibung"></textarea>
+          <button type="submit">Pod speichern</button>
+        </form>
+      </section>
 
-        <div class="profile-pill" id="workspaceBadge">Workspace: arbeit / privat</div>
-      </header>
+      <section class="card">
+        <h2>Pods & Projekt-Konvertierung</h2>
+        <div id="podList"></div>
+      </section>
 
-      <main class="shell-grid">
-        <aside class="left-sidebar">
-          <div class="nav-group">
-            <button class="nav-item active" data-view="active">Aktiv</button>
-            <button class="nav-item" data-view="projects">Projekte</button>
-            <button class="nav-item" data-view="pods">Pods</button>
-          </div>
-          <button class="nav-item nav-settings" data-view="settings">Settings</button>
-        </aside>
+      <section class="card">
+        <h2>Signal/WhatsApp Sniffer</h2>
+        <form id="snifferForm">
+          <input name="provider" placeholder="signal oder whatsapp" required />
+          <input name="channel" placeholder="z.B. Teamgruppe" required />
+          <input name="boundTo" placeholder="Pod-ID oder Projekt-ID" required />
+          <input name="targetType" placeholder="pod oder project" required />
+          <input name="mode" placeholder="project-info oder pod-source" required />
+          <button type="submit">Sniffer anlegen</button>
+        </form>
+        <div id="snifferResult"></div>
+      </section>
 
-        <section class="main-content">
-          <div class="content-head" id="contentHead"></div>
-          <div id="contentArea"></div>
-        </section>
-
-        <aside class="right-sidebar">
-          <h2>Assistant Chat</h2>
-          <p class="muted">Frage nach Fälligkeiten, nächsten Tasks oder Pod-Ideen.</p>
-
-          <form id="aiForm" class="chat-form">
-            <textarea name="message" placeholder="z.B. Was muss ich heute erledigen?" required></textarea>
-            <button type="submit">Send</button>
-          </form>
-
-          <div id="chatMessages" class="chat-messages"></div>
-        </aside>
-      </main>
-    </div>
-
-    <template id="emptyTemplate">
-      <div class="panel hero-panel">
-        <h2>Willkommen im MissionCRTL Workspace</h2>
-        <p>Wähle links einen Bereich aus oder starte mit diesen Vorschlägen:</p>
-        <ul>
-          <li>Pod anlegen und strukturieren</li>
-          <li>Pod zu Projekt konvertieren (Tracker + Repo)</li>
-          <li>Signal/WhatsApp Sniffer für projektbezogene Infos aktivieren</li>
-          <li>AI Chat zur Priorisierung und Ideenfindung nutzen</li>
-        </ul>
-      </div>
-    </template>
+      <section class="card">
+        <h2>KI Chatbox (Gemini / ChatGPT / Ollama)</h2>
+        <form id="aiForm">
+          <input name="message" placeholder="Was muss ich noch machen?" required />
+          <button type="submit">Fragen</button>
+        </form>
+        <div id="aiAnswer"></div>
+      </section>
+    </main>
 
     <script src="app.js"></script>
   </body>
